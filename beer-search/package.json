@@ -26,7 +26,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "lint-staged"
+    "lint": "lint-staged",
+    "format": "./node_modules/.bin/prettier --write \"src/**/*.{ts,tsx,json,css,scss,md}\""
   },
   "eslintConfig": {
     "extends": [
