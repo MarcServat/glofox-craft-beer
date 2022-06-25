@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BASE_URL_API, GET_BEERS, RANDOM } from "../constants";
 import useFetch from "./useFetch";
 import { PunkApi } from "../types/api";
@@ -16,7 +16,7 @@ function useRandomBeer(props?: UseRandomBeer) {
   const { loading } = useFetch<[PunkApi]>({
     url: BASE_URL_API + GET_BEERS + RANDOM,
     onSuccess: (response) => {
-      setRandomBeer(GETPunkAPI[0] as unknown as PunkApi); // setRandomBeer(response[0]);
+      setRandomBeer(response[0]); // setRandomBeer(response[0]);
       props?.onSuccess && props.onSuccess(response[0]);
     },
     onError: () => {
