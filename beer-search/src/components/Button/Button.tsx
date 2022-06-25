@@ -1,14 +1,13 @@
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import "./Button.css";
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   content: string;
-  onClick: () => void;
 }
 
 const Button = (props: ButtonProps) => {
   return (
-    <button className="button-component" onClick={props.onClick}>
+    <button className="button-component" {...props}>
       {props.content}
     </button>
   );
