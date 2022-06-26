@@ -40,7 +40,7 @@ const SearchBar = (props: SearchBarProps) => {
 
   return (
     <form data-testid="search-form" className="form" onSubmit={onSubmit}>
-      {option === Option.Name && (
+         {option === Option.Name && (
         <input
           data-testid="text-input"
           type="text"
