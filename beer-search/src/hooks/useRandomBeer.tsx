@@ -14,7 +14,9 @@ function useRandomBeer(props?: UseRandomBeer) {
   const [randomBeer, setRandomBeer] = useState<PunkApi>();
   const [error, setError] = useState("");
 
-  const { loading: loadingRandomBeer, refetch: refetchRandomBeer } = useFetch<[PunkApi]>({
+  const { loading: loadingRandomBeer, refetch: refetchRandomBeer } = useFetch<
+    [PunkApi]
+  >({
     url: BASE_URL_API + GET_BEERS + RANDOM,
     params: props?.params,
     onSuccess: (response) => {
@@ -28,18 +30,26 @@ function useRandomBeer(props?: UseRandomBeer) {
     },
   });
 
-  const { loading: loadingNonAlcoholicBeer, refetch: refetchNonAlcoholicBeer } = useGetBeers({
-    params: {abv_lt: "1"},
-    onSuccess: (response) =>  {
-      setRandomBeer(response[0])
-    },
-    onError: () => {
-      setError("Couldn't fetch a non alcoholic beer");
-      props?.onError && props.onError();
-    },
-  })
+  const { loading: loadingNonAlcoholicBeer, refetch: refetchNonAlcoholicBeer } =
+    useGetBeers({
+      params: { abv_lt: "1" },
+      onSuccess: (response) => {
+        setRandomBeer(response[0]);
+      },
+      onError: () => {
+        setError("Couldn't fetch a non alcoholic beer");
+        props?.onError && props.onError();
+      },
+    });
 
-  return { loadingRandomBeer, loadingNonAlcoholicBeer, error, randomBeer, refetchRandomBeer, refetchNonAlcoholicBeer };
+  return {
+    loadingRandomBeer,
+    loadingNonAlcoholicBeer,
+    error,
+    randomBeer,
+    refetchRandomBeer,
+    refetchNonAlcoholicBeer,
+  };
 }
 
 export default useRandomBeer;

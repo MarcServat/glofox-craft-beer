@@ -9,20 +9,20 @@ interface UseGetBeers {
   onError?: () => void;
 }
 
-function useGetBeers(props: UseGetBeers) {
+function useGetBeers(props?: UseGetBeers) {
   const [beerList, setBeerList] = useState<PunkApi[]>([]);
   const [error, setError] = useState("");
 
   const { loading, refetch } = useFetch<PunkApi[]>({
     url: BASE_URL_API + GET_BEERS,
-    params: props.params,
+    params: props?.params,
     onSuccess: (response) => {
       setBeerList(response);
-      props.onSuccess && props.onSuccess(response);
+      props?.onSuccess && props.onSuccess(response);
     },
     onError: () => {
       setError("Couldn't fetch the beer's list");
-      props.onError && props.onError();
+      props?.onError && props.onError();
     },
   });
 
