@@ -41,7 +41,7 @@ const SearchBar = (props: SearchBarProps) => {
   return (
     <form data-testid="search-form" className="form" onSubmit={onSubmit}>
          {option === Option.Name && (
-        <input
+            <input
           data-testid="text-input"
           type="text"
           pattern="[A-Za-z0-9 -]+"
