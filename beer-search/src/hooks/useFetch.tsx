@@ -20,6 +20,7 @@ function useFetch<T>(props: UseFetchProps<T>) {
         props.onSuccess && props.onSuccess(res);
       })
       .catch(() => {
+        console.log('erorrrrr')
         setLoading(false);
         props.onError && props.onError();
       });
