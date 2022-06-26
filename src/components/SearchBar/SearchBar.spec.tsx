@@ -36,6 +36,5 @@ describe("Given SearchBar component", () => {
 
       expect(onSubmit).toHaveBeenCalledWith({ beer_name: "tasty beer" });
     });
-
   });
 });
