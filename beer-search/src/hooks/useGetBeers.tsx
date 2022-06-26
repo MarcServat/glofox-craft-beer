@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { BASE_URL_API, GET_BEERS, RANDOM } from "../constants";
+import React, { useState } from "react";
+import { BASE_URL_API, GET_BEERS } from "../constants";
 import useFetch from "./useFetch";
 import { PunkApi } from "../types/api";
 
-interface UseGetBeer {
+interface UseGetBeers {
+  params?: Record<string, string>;
   onSuccess?: (response: PunkApi[]) => void;
   onError?: () => void;
 }
 
-function useGetBeer(props: UseGetBeer) {
+function useGetBeers(props: UseGetBeers) {
   const [beerList, setBeerList] = useState<PunkApi[]>([]);
   const [error, setError] = useState("");
 
-  const { loading } = useFetch<PunkApi[]>({
+  const { loading, refetch } = useFetch<PunkApi[]>({
     url: BASE_URL_API + GET_BEERS,
+    params: props.params,
     onSuccess: (response) => {
       setBeerList(response);
       props.onSuccess && props.onSuccess(response);
@@ -24,7 +26,7 @@ function useGetBeer(props: UseGetBeer) {
     },
   });
 
-  return { loading, error, beerList };
+  return { loading, error, beerList, refetch };
 }
 
-export default useGetBeer;
+export default useGetBeers;

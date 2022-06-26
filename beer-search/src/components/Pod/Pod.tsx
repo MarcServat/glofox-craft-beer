@@ -1,24 +1,27 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, ReactNode } from "react";
+import "./Pod.css";
 
 interface PodProps {
-  title?: string;
-  img?: string;
-  content?: string;
-  actions: ReactElement;
+  title: string;
+  img: string;
+  content: string;
+  actions: ReactNode;
 }
 
 const Pod = (props: PodProps): ReactElement => {
   return (
-    <div className="pod">
-      <section>
-        <h1>{props.title}</h1>
-        <img src={props.img} alt={props.title} loading="lazy" height="300" />
-      </section>
-      <section>
-        <p>{props.content}</p>
-      </section>
-      <section>{props.actions}</section>
-    </div>
+    <section className="pod">
+      <h1 className="pod__header">{props.title}</h1>
+      <img
+        className="pod__image"
+        src={props.img}
+        alt={props.title}
+        loading="lazy"
+        height="300"
+      />
+      <p className="pod__content">{props.content}</p>
+      <aside className="pod__actions">{props.actions}</aside>
+    </section>
   );
 };
 

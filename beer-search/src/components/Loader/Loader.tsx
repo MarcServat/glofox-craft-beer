@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 
 interface LoaderProps {
   loading: boolean;
-  children: ReactElement | ReactElement[];
+  children: React.ReactNode;
 }
 
 const Loader = (props: LoaderProps) => {

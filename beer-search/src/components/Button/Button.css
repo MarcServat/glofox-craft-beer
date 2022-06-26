@@ -1,4 +1,6 @@
 .button-component {
-  background-color: darkblue;
+  padding: 1rem;
   color: white;
+  background-color: darkblue;
+  border-radius: 1rem;
 }

@@ -1,3 +1,25 @@
 .pod {
   display: grid;
+  grid-template: auto 1fr / auto 1fr auto;
+  gap: 1rem;
+}
+
+.pod__header {
+  margin-top: 0;
+  margin-bottom: 0;
+  grid-column: 1 / 4;
+}
+
+.pod__image {
+  grid-row: 2 / 3;
+}
+
+.pod__content {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
+.pod__actions {
+  grid-row: 2 / 3;
+  grid-column: 3 / 4;
 }

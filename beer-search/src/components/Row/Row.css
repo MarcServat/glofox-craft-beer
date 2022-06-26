@@ -1,5 +1,6 @@
 .row {
-  padding: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   display: grid;
   grid-template-columns: minmax(100px, auto) 1fr;
   gap: 1rem;

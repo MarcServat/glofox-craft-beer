@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 interface UseFetchProps<T> {
   url: string;
+  params?: Record<string, string>;
   onSuccess?: (response: T) => void;
   onError?: () => void;
 }
@@ -9,21 +10,28 @@ interface UseFetchProps<T> {
 function useFetch<T>(props: UseFetchProps<T>) {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetch(props.url)
-      .then((res) => res.json())
+  const refetch = (params?: Record<string, string>, newUrl?: string) => {
+    const url = new URL(newUrl || props.url);
+    url.search = new URLSearchParams(params).toString();
+    fetch(url)
+      .then<T>((res) => res.json())
       .then((res) => {
         setLoading(false);
-        props.onSuccess && props.onSuccess(res as unknown as T);
+        props.onSuccess && props.onSuccess(res);
       })
       .catch(() => {
         setLoading(false);
         props.onError && props.onError();
       });
+  };
+
+  useEffect(() => {
+    refetch(props.params);
   }, []);
 
   return {
     loading,
+    refetch,
   };
 }
 
