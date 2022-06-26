@@ -9,7 +9,7 @@ export enum Option {
 
 export type FormValues = { beer_name?: string; brewed_before?: string };
 
-interface SearchBarProps {
+export interface SearchBarProps {
   onSubmit: (formValues: FormValues) => void;
 }
 
@@ -39,15 +39,30 @@ const SearchBar = (props: SearchBarProps) => {
   };
 
   return (
-    <form className="form" onSubmit={onSubmit}>
+    <form data-testid="search-form" className="form" onSubmit={onSubmit}>
       {option === Option.Name && (
-        <input type="text" value={inputValue} onChange={onInputChange} />
+        <input
+          data-testid="text-input"
+          type="text"
+          pattern="[A-Za-z0-9 -]+"
+          title="Only letters, numbers, spaces and hyphens are allowed"
+          value={inputValue}
+          required
+          onChange={onInputChange}
+        />
       )}
       {option === Option.BrewedBefore && (
-        <input type="month" value={inputValue} onChange={onInputChange} />
+        <input
+          data-testid="month-input"
+          type="month"
+          value={inputValue}
+          required
+          onChange={onInputChange}
+        />
       )}
       <label htmlFor="by_name">
         <input
+          data-testid="by-name"
           id="by_name"
           type="radio"
           value={Option.Name}
@@ -59,6 +74,7 @@ const SearchBar = (props: SearchBarProps) => {
       </label>
       <label htmlFor="by_brewed_before">
         <input
+          data-testid="by-brewed-before"
           id="by_brewed_before"
           type="radio"
           value={Option.BrewedBefore}

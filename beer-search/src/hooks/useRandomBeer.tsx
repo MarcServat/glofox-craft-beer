@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BASE_URL_API, GET_BEERS, RANDOM } from "../constants";
 import useFetch from "./useFetch";
 import { PunkApi } from "../types/api";

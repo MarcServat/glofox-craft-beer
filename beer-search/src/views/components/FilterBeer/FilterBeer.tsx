@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement } from "react";
 import SearchBar, { FormValues } from "../../../components/SearchBar/SearchBar";
 import GenericError from "../../../components/GenericError/GenericError";
 import Loader from "../../../components/Loader/Loader";
@@ -25,6 +25,7 @@ const FilterBeer = (): ReactElement => {
           <h1>Search Results</h1>
           {beerList.map((beer) => (
             <Row
+                data-testid="row"
               key={beer.id}
               img={beer.image_url}
               name={beer.name}

@@ -13,5 +13,8 @@ code {
 }
 
 #beer-search {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
   padding: 1rem;
 }

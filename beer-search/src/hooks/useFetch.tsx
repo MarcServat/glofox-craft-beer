@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface UseFetchProps<T> {
   url: string;
@@ -20,7 +20,6 @@ function useFetch<T>(props: UseFetchProps<T>) {
         props.onSuccess && props.onSuccess(res);
       })
       .catch(() => {
-        console.log('erorrrrr')
         setLoading(false);
         props.onError && props.onError();
       });

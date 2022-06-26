@@ -8,8 +8,6 @@ interface RowProps {
 }
 
 const Row = (props: RowProps) => {
-  console.log("render");
-
   return (
     <div className="row">
       <img

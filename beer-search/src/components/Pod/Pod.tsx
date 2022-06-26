@@ -1,11 +1,5 @@
-import React, { ReactElement, ReactNode, useState } from "react";
+import React, { ReactElement, ReactNode } from "react";
 import "./Pod.css";
-import GenericError from "../GenericError/GenericError";
-import Loader from "../Loader/Loader";
-import Button from "../Button/Button";
-import { BASE_URL_API, GET_BEERS, RANDOM } from "../../constants";
-import { PunkApi } from "../../types/api";
-import useFetch from "../../hooks/useFetch";
 
 interface PodProps {
   title: string;

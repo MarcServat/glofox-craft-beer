@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BASE_URL_API, GET_BEERS } from "../constants";
 import useFetch from "./useFetch";
 import { PunkApi } from "../types/api";
@@ -21,7 +21,7 @@ function useGetBeers(props?: UseGetBeers) {
       props?.onSuccess && props.onSuccess(response);
     },
     onError: () => {
-      console.log('erorrrrr')
+      console.log("erorrrrr");
       setError("Couldn't fetch the beer's list");
       props?.onError && props.onError();
     },
