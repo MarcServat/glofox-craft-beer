@@ -3,14 +3,14 @@ import "./Pod.css";
 
 interface PodProps {
   title: string;
-  img: string;
-  content: string;
   actions: ReactNode;
+  img?: string;
+  content?: string;
 }
 
 const Pod = (props: PodProps): ReactElement => {
   return (
-    <section className="pod">
+    <section data-testid="pod" className="pod">
       <h1 className="pod__header">{props.title}</h1>
       <img
         className="pod__image"

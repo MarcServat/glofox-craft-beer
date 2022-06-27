@@ -2,14 +2,14 @@ import React from "react";
 import "./Row.css";
 
 interface RowProps {
-  img: string;
-  name: string;
-  content: string;
+  img?: string;
+  name?: string;
+  content?: string;
 }
 
 const Row = (props: RowProps) => {
   return (
-    <div className="row">
+    <div data-testid="row" className="row">
       <img
         className="row__image"
         src={props.img}

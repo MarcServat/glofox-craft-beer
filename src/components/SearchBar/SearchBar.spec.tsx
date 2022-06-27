@@ -24,7 +24,7 @@ describe("Given SearchBar component", () => {
     });
   });
   describe("When the form is submitted", () => {
-    it("Should then return the name API param in the correct format", async () => {
+    it("Should then return the API query string with snake case", async () => {
       const onSubmit = jest.fn();
       renderComponent({ onSubmit });
       const form = await screen.findByTestId("search-form");

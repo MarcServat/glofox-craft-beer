@@ -9,7 +9,9 @@ export const handlers = [
     const params = new URLSearchParams(req.url.search);
     const abv_lt = params.get("abv_lt");
     if (abv_lt) {
-      const beers = response.filter((beer) => beer.abv < parseFloat(abv_lt));
+      const beers = response.filter((beer) => {
+        if (beer.abv) return beer.abv < parseFloat(abv_lt);
+      });
       return res(context.delay(2000), context.status(200), context.json(beers));
     }
     return res(

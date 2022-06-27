@@ -25,7 +25,6 @@ const FilterBeer = (): ReactElement => {
           <h1>Search Results</h1>
           {beerList.map((beer) => (
             <Row
-              data-testid="row"
               key={beer.id}
               img={beer.image_url}
               name={beer.name}

@@ -6,19 +6,11 @@ import { BASE_URL_API, GET_BEERS, RANDOM } from "../../../constants";
 import { PunkApi } from "../../../types/api";
 import useFetch from "../../../hooks/useFetch";
 import Pod from "../../../components/Pod/Pod";
+import { isValidBeer, ValidatedBeer } from "./utils";
 
-interface BeerCardProps {}
-
-const BeerCard = (props: BeerCardProps): ReactElement => {
-  const [randomBeer, setRandomBeer] = useState<PunkApi>();
+const BeerCard = (): ReactElement => {
+  const [randomBeer, setRandomBeer] = useState<ValidatedBeer>();
   const [error, setError] = useState("");
-
-  const meetRequirements = (beer: PunkApi) => {
-    if (beer.name && beer.description) {
-      return beer;
-    }
-    refetch();
-  };
 
   const { loading, refetch } = useFetch<PunkApi[]>({
     url: BASE_URL_API + GET_BEERS + RANDOM,
@@ -26,11 +18,11 @@ const BeerCard = (props: BeerCardProps): ReactElement => {
       if (response.length > 1) {
         const selectedBeer =
           response[Math.floor(Math.random() * response.length)];
-        const beer = meetRequirements(selectedBeer);
+        const beer = isValidBeer(selectedBeer, refetch);
         setRandomBeer(beer);
       }
       if (response.length === 1) {
-        const beer = meetRequirements(response[0]);
+        const beer = isValidBeer(response[0], refetch);
         setRandomBeer(beer);
       }
     },

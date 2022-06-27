@@ -21,7 +21,6 @@ function useGetBeers(props?: UseGetBeers) {
       props?.onSuccess && props.onSuccess(response);
     },
     onError: () => {
-      console.log("erorrrrr");
       setError("Couldn't fetch the beer's list");
       props?.onError && props.onError();
     },

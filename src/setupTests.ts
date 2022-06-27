@@ -5,6 +5,7 @@
 import "@testing-library/jest-dom";
 import { setupServer } from "msw/node";
 import { handlers } from "./mocks/handlers";
+import { configure } from "@testing-library/react";
 
 const server = setupServer(...handlers);
 
@@ -15,3 +16,6 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 // clean up once the tests are done
 afterAll(() => server.close());
+
+// increase the default timeout above the http delay
+configure({ asyncUtilTimeout: 4000 });

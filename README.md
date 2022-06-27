@@ -1,6 +1,7 @@
 ### Introduction
 
 This development had been focused on making the project scalable. For that, techniques such as custom hooks, presentational and container components, usage of typescript, automated lint for commits, and a code formatter have been used.
+
 In the root folder, there are the configuration files and documentation. The application code is under `src` folder. 
 
 ```bash
@@ -35,11 +36,10 @@ This application was created with [created react app](https://create-react-app.d
 
 For testing, the use of two libraries are encouraged, `react-testing-library` and `jest`. Jest will cover unit test and react testing library will be responsible for the integration test.
 
-NOTE: A sample of integration test is included in the `SearchBar` component. Due to time constraints, no more tests have been added to the delivered project.
-
+For the test performed, some happy paths are tested, however due to time constraints most of them are missing.  
 
 ### Further development
-In terms of scalability, would be profitable to split the application in micro frontends. Ideally, two micro frontends will be created at the beginning.
+In terms of scalability, would be efficient to split the application in micro frontends. Ideally, two micro frontends will be created at the beginning for the teams to work independently. 
 ![img.png](images/img.png)
 
-Despite my lack of experience on this architecture, some challenges could be managing the shared resources between micro frontends and compiling strategies for each of them.
+Despite my lack of experience on this architecture, some challenges could be managing the shared resources/dependencies between micro frontends and finding the right compiling strategies for each of them.
