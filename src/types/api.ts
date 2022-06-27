@@ -1,5 +1,3 @@
-type Date = "mm-yyyy";
-
 export interface PunkApi {
   id: 1;
   name: string;
