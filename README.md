@@ -2,6 +2,11 @@
 
 This development had been focused on making the project scalable. For that, techniques such as custom hooks, presentational and container components, usage of typescript, lint for conventional commits, and a code formatter have been used.
 
+To be able to push commit, the following requirement have to be met:
+* The commit message should be compliant with conventional commits.
+* The test should pass.
+* Prettier should be able to format the code successfully.
+
 In the root folder, there are the configuration files and documentation. The application code is under `src` folder. 
 
 ```bash
@@ -36,9 +41,12 @@ This application was created with [created react app](https://create-react-app.d
 
 For testing, the use of two libraries are encouraged, `react-testing-library` and `jest`. Jest will cover unit test and react testing library will be responsible for the integration test.
 
+The jest timeout have been increase due to the delay added to the mocked http request. 
+
 Coverage is up to 60% and for the test performed, some happy paths are tested, however due to time constraints most of them are missing.  
 
 ### Further development
+
 In terms of scalability, would be efficient to split the application in micro frontends. Ideally, two micro frontends will be created at the beginning for the teams to work independently. 
 ![img.png](images/img.png)
 
