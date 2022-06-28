@@ -2,9 +2,9 @@ import { isValidBeer } from "./utils";
 import GETPunkAPI from "../../../mocks/GETPunkAPI.json";
 import { PunkApi } from "../../../types/api";
 
-describe("Given a beer", () => {
-  const punkBeerAPI = GETPunkAPI[0] as unknown as PunkApi;
+const punkBeerAPI = GETPunkAPI[0] as unknown as PunkApi;
 
+describe("Given a beer", () => {
   describe("When it have a name and a description", () => {
     it("is a valid beer", () => {
       const cb = jest.fn();
