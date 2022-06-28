@@ -3,13 +3,13 @@ import { BASE_URL_API, GET_BEERS } from "../constants";
 import useFetch from "./useFetch";
 import { PunkApi } from "../types/api";
 
-interface UseGetBeers {
+export interface UseGetBeersProps {
   params?: Record<string, string>;
   onSuccess?: (response: PunkApi[]) => void;
   onError?: () => void;
 }
 
-function useGetBeers(props?: UseGetBeers) {
+function useGetBeers(props?: UseGetBeersProps) {
   const [beerList, setBeerList] = useState<PunkApi[]>([]);
   const [error, setError] = useState("");
 

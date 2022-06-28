@@ -51,3 +51,5 @@ In terms of scalability, would be efficient to split the application in micro fr
 ![img.png](images/img.png)
 
 Due to my lack of experience on this architecture, some challenges could be managing the shared resources/dependencies between micro frontends and finding the right compiling strategies for each of them.
+
+Also, a refactor of `useFetch` will be needed as the refetch function is taking a newUrl as a param and it should just refetch the previously requested url.
