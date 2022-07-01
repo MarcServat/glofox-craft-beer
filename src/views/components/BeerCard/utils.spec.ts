@@ -7,8 +7,7 @@ const punkBeerAPI = GETPunkAPI[0] as unknown as PunkApi;
 describe("Given a beer", () => {
   describe("When it have a name and a description", () => {
     it("is a valid beer", () => {
-      const cb = jest.fn();
-      const validBeer = isValidBeer(punkBeerAPI, cb);
+      const validBeer = isValidBeer(punkBeerAPI);
 
       expect(validBeer).toStrictEqual(GETPunkAPI[0]);
     });
@@ -36,11 +35,9 @@ describe("Given a beer", () => {
         },
       },
     ])("then it should call the callback arg", ({ beer }) => {
-      const cb = jest.fn();
-      const validBeer = isValidBeer(beer(), cb);
+      const validBeer = isValidBeer(beer());
 
       expect(validBeer).toBe(undefined);
-      expect(cb).toHaveBeenCalled();
     });
   });
 });
